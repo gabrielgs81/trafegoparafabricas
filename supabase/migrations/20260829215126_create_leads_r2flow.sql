@@ -40,3 +40,24 @@ with check (
   and char_length(empresa) between 2 and 160
   and char_length(whatsapp) between 10 and 24
 );
+
+create extension if not exists pg_cron with schema pg_catalog;
+
+do $$
+declare
+  existing_job bigint;
+begin
+  select jobid into existing_job
+  from cron.job
+  where jobname = 'delete-expired-r2flow-leads';
+
+  if existing_job is not null then
+    perform cron.unschedule(existing_job);
+  end if;
+end $$;
+
+select cron.schedule(
+  'delete-expired-r2flow-leads',
+  '17 3 * * *',
+  $$delete from public.leads_r2flow where expires_at <= now()$$
+);
