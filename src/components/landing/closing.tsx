@@ -230,7 +230,9 @@ export function SiteFooter() {
           <a href="tel:+5517991410762" className="transition-colors hover:text-foreground">
             (17) 99141-0762
           </a>
-          <p className="text-xs">Rua Florindo Rosan, 70 — São José do Rio Preto/SP</p>
+          <p className="max-w-sm text-xs sm:text-right">
+            Rua Florindo Rosan, 70, Jardim do Bosque — São José do Rio Preto/SP — CEP 15053-035
+          </p>
           <div className="flex flex-wrap gap-x-4 gap-y-2">
             <a href="/privacidade" className="transition-colors hover:text-foreground">
               Privacidade
@@ -246,6 +248,14 @@ export function SiteFooter() {
             >
               <Instagram className="size-4" />
               @trafegoparafabricas
+            </a>
+            <a
+              href="https://www.facebook.com/trafegoparafabricas/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-foreground"
+            >
+              Facebook
             </a>
           </div>
         </div>
