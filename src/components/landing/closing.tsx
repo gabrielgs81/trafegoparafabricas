@@ -220,15 +220,35 @@ export function SiteFooter() {
             </p>
           </div>
         </div>
-        <a
-          href="https://www.instagram.com/trafegoparafabricas/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <Instagram className="size-4" />
-          @trafegoparafabricas
-        </a>
+        <div className="flex flex-col gap-2 text-sm text-muted-foreground sm:items-end">
+          <a
+            href="mailto:gabriel@r2flow.com.br"
+            className="transition-colors hover:text-foreground"
+          >
+            gabriel@r2flow.com.br
+          </a>
+          <a href="tel:+5517991410762" className="transition-colors hover:text-foreground">
+            (17) 99141-0762
+          </a>
+          <p className="text-xs">Rua Florindo Rosan, 70 — São José do Rio Preto/SP</p>
+          <div className="flex flex-wrap gap-x-4 gap-y-2">
+            <a href="/privacidade" className="transition-colors hover:text-foreground">
+              Privacidade
+            </a>
+            <a href="/termos" className="transition-colors hover:text-foreground">
+              Termos de Uso
+            </a>
+            <a
+              href="https://www.instagram.com/trafegoparafabricas/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
+            >
+              <Instagram className="size-4" />
+              @trafegoparafabricas
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
   );

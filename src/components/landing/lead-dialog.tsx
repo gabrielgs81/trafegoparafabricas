@@ -17,6 +17,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { submitLead } from "@/lib/lead-submission";
 
 type Ctx = { open: () => void };
 const LeadFormContext = createContext<Ctx>({ open: () => {} });
@@ -72,15 +73,51 @@ function Field({
 
 export function LeadFormProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const value = useMemo(() => ({ open: () => setIsOpen(true) }), []);
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setIsOpen(false);
-    toast.success("Diagnóstico solicitado", {
-      description: "Recebemos seus dados. O contato é feito por WhatsApp em até 1 dia útil.",
-    });
-    event.currentTarget.reset();
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const params = new URLSearchParams(window.location.search);
+
+    setIsSubmitting(true);
+    try {
+      await submitLead({
+        data: {
+          nome: String(formData.get("nome") ?? ""),
+          empresa: String(formData.get("empresa") ?? ""),
+          whatsapp: String(formData.get("whatsapp") ?? ""),
+          site: String(formData.get("site") ?? ""),
+          segmento: String(formData.get("segmento") ?? ""),
+          vendedores: Number(formData.get("vendedores") ?? 0),
+          faturamento: String(formData.get("faturamento") ?? ""),
+          investimento: String(formData.get("investimento") ?? ""),
+          desafio: String(formData.get("desafio") ?? ""),
+          consentimento: formData.get("consentimento") === "on",
+          websiteConfirmacao: String(formData.get("website_confirmacao") ?? ""),
+          utmSource: params.get("utm_source") ?? undefined,
+          utmMedium: params.get("utm_medium") ?? undefined,
+          utmCampaign: params.get("utm_campaign") ?? undefined,
+        },
+      });
+
+      toast.success("Diagnóstico solicitado", {
+        description: "Dados registrados. Vamos continuar o atendimento pelo WhatsApp.",
+      });
+      form.reset();
+      setIsOpen(false);
+      window.location.href =
+        "https://wa.me/5517991410762?text=Ol%C3%A1%2C%20acabei%20de%20solicitar%20um%20diagn%C3%B3stico%20pelo%20site%20da%20R2Flow.";
+    } catch (error) {
+      console.error(error);
+      toast.error("Não foi possível enviar", {
+        description: "Tente novamente ou fale conosco pelo WhatsApp.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -99,6 +136,16 @@ export function LeadFormProvider({ children }: { children: ReactNode }) {
           </DialogHeader>
 
           <form className="mt-2 grid gap-5" onSubmit={handleSubmit}>
+            <div className="absolute -left-[9999px]" aria-hidden="true">
+              <label htmlFor="lf-confirmacao">Não preencha este campo</label>
+              <input
+                id="lf-confirmacao"
+                name="website_confirmacao"
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </div>
             <div className="grid gap-5 sm:grid-cols-2">
               <Field label="Nome" htmlFor="lf-nome">
                 <Input id="lf-nome" name="nome" required autoComplete="name" />
@@ -176,8 +223,31 @@ export function LeadFormProvider({ children }: { children: ReactNode }) {
               </Select>
             </Field>
 
-            <Button type="submit" variant="cta" size="xl" className="w-full">
-              Solicitar meu diagnóstico
+            <label className="flex items-start gap-3 text-xs leading-relaxed text-muted-foreground">
+              <input
+                type="checkbox"
+                name="consentimento"
+                required
+                className="mt-0.5 size-4 shrink-0 accent-primary"
+              />
+              <span>
+                Li e concordo com a{" "}
+                <a href="/privacidade" target="_blank" className="text-primary-soft underline">
+                  Política de Privacidade
+                </a>{" "}
+                e autorizo o contato por WhatsApp sobre o diagnóstico, incluindo follow-up comercial
+                e comunicações relacionadas aos serviços da R2Flow.
+              </span>
+            </label>
+
+            <Button
+              type="submit"
+              variant="cta"
+              size="xl"
+              className="w-full"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Enviando..." : "Solicitar meu diagnóstico"}
             </Button>
           </form>
         </DialogContent>
