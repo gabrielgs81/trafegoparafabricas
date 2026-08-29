@@ -208,12 +208,15 @@ export function SiteFooter() {
       <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 sm:flex-row sm:items-center sm:justify-between lg:px-8">
         <div className="flex items-center gap-2.5">
           <span className="flex h-8 w-8 items-center justify-center rounded-md bg-primary font-display text-base font-bold text-primary-foreground">
-            @
+            R2
           </span>
           <div>
-            <p className="font-display text-sm font-semibold">Arrobáh</p>
+            <p className="font-display text-sm font-semibold">R2Flow</p>
             <p className="text-xs text-muted-foreground">
               Tráfego pago e escala comercial para fábricas
+            </p>
+            <p className="mt-1 max-w-xl text-xs leading-relaxed text-muted-foreground">
+              R2Flow é uma marca de Gabriel Sabino da Silva Rodrigues — CNPJ 41.906.310/0001-57
             </p>
           </div>
         </div>

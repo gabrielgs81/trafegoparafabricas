@@ -8,7 +8,7 @@ import { Methodology } from "@/components/landing/methodology";
 import { Proof } from "@/components/landing/proof";
 import { Audience, Diagnostic, About, FinalCta, SiteFooter } from "@/components/landing/closing";
 
-const TITLE = "Tráfego Pago para Fábricas | Arrobáh";
+const TITLE = "Tráfego Pago para Fábricas | R2Flow";
 const DESCRIPTION =
   "Estratégias de tráfego pago, aquisição e escala comercial para fábricas. Transforme mídia em oportunidades, vendas e previsibilidade de faturamento.";
 

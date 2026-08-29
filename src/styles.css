@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Arrobáh — design system
+ * R2Flow — design system
  * Purple primary, orange accent, graphite/black premium dark surfaces.
  * All colors in oklch. Never hardcode colors in components.
  */

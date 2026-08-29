@@ -528,7 +528,7 @@ consultoria de crescimento + indústria + tecnologia + performance
 
 Não quero estética de agência de social media.
 
-Utilizar a identidade visual da Arrobáh:
+Utilizar a identidade visual da R2Flow:
 
 roxo como cor principal;
 
@@ -588,7 +588,7 @@ MENU
 
 Criar menu sticky:
 
-Logo Arrobáh
+Logo R2Flow
 
 Metodologia
 Cases
@@ -603,7 +603,7 @@ SEO
 
 Title:
 
-Tráfego Pago para Fábricas | Arrobáh
+Tráfego Pago para Fábricas | R2Flow
 
 Description:
 

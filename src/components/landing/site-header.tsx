@@ -31,11 +31,11 @@ export function SiteHeader() {
       )}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:h-18 lg:px-8">
-        <a href="#top" className="flex items-center gap-2.5" aria-label="Arrobáh — início">
+        <a href="#top" className="flex items-center gap-2.5" aria-label="R2Flow — início">
           <span className="flex h-8 w-8 items-center justify-center rounded-md bg-primary font-display text-base font-bold text-primary-foreground">
-            @
+            R2
           </span>
-          <span className="font-display text-lg font-semibold tracking-tight">Arrobáh</span>
+          <span className="font-display text-lg font-semibold tracking-tight">R2Flow</span>
         </a>
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Navegação principal">
