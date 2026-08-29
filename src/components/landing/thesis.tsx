@@ -65,7 +65,10 @@ export function Thesis() {
             </h2>
           </Reveal>
 
-          <Reveal delay={100} className="space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+          <Reveal
+            delay={100}
+            className="space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg"
+          >
             <p>Uma venda industrial pode levar dias, semanas ou meses.</p>
             <p>
               O lead de hoje pode ser o projeto de{" "}

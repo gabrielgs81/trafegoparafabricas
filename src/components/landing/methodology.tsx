@@ -55,8 +55,7 @@ const PILLARS = [
       "Capacidade produtiva",
       "Histórico de conversão",
     ],
-    footer:
-      "A mídia cresce conforme a operação demonstra capacidade de absorver a demanda.",
+    footer: "A mídia cresce conforme a operação demonstra capacidade de absorver a demanda.",
   },
 ];
 

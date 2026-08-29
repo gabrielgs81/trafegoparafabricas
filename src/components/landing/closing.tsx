@@ -43,7 +43,10 @@ export function Audience() {
           <Reveal delay={100}>
             <ul className="grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2">
               {FITS.map((f) => (
-                <li key={f} className="flex items-start gap-3 bg-surface p-5 text-sm leading-relaxed">
+                <li
+                  key={f}
+                  className="flex items-start gap-3 bg-surface p-5 text-sm leading-relaxed"
+                >
                   <Check className="mt-0.5 size-4 shrink-0 text-accent" />
                   {f}
                 </li>
@@ -93,7 +96,10 @@ export function Diagnostic() {
           ))}
         </ol>
 
-        <Reveal delay={120} className="mt-10 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+        <Reveal
+          delay={120}
+          className="mt-10 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between"
+        >
           <p className="max-w-xl font-display text-lg leading-snug sm:text-xl">
             Quando esses números estão conectados, conseguimos construir uma projeção de escala.
           </p>

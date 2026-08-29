@@ -69,8 +69,8 @@ export function Hero() {
           <Reveal delay={320}>
             <p className="mt-7 font-mono text-[0.7rem] tracking-[0.2em] text-muted-foreground uppercase">
               Estratégia <span className="text-accent">•</span> Tráfego{" "}
-              <span className="text-accent">•</span> Comercial <span className="text-accent">•</span>{" "}
-              Escala
+              <span className="text-accent">•</span> Comercial{" "}
+              <span className="text-accent">•</span> Escala
             </p>
           </Reveal>
         </div>

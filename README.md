@@ -629,23 +629,20 @@ Mais negócio, vendas e faturamento.
 
 Meu instagram - https://www.instagram.com/trafegoparafabricas/
 
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/fc0f6e42-f10b-451e-b785-c8b4a66a6236).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Requer Node.js 20 ou mais recente.
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+npm ci
 npm run dev
 ```
+
+## Deploy na Vercel
+
+1. Importe este repositório na Vercel.
+2. Mantenha o diretório raiz como `.`.
+3. Faça o deploy. O `vercel.json` executa `npm ci` e `npm run build`.
+
+O build usa TanStack Start com Nitro e gera automaticamente o formato Build Output API da
+Vercel em `.vercel/output`. O projeto atualmente não requer variáveis de ambiente.
